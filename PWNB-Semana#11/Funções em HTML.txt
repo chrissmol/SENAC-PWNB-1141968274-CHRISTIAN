@@ -1,6 +1,0 @@
-
-A implementação do código JavaScript em elementos HTML é a base para funções, que são projetadas para executar ações específicas reagindo à entrada do usuário ou outros eventos. Sem essas funções, as páginas da web perderiam sua qualidade interativa e não conseguiriam manter os usuários engajados.
-
-Você pode controlar a experiência do usuário e interagir em tempo real definindo determinados comportamentos com funções para eventos como cliques em botões, envios de formulários ou carregamento de páginas. Isso também permite a manipulação dinâmica de conteúdo e validação de dados.
-
-As funções JavaScript são essenciais na codificação HTML, pois permitem que os desenvolvedores web adicionem dinamismo às páginas web. Com esse recurso, os desenvolvedores podem personalizar e regular a interação do usuário com o conteúdo da página. No geral, as páginas web dinâmicas são criadas através da implementação de funções Javascript.
