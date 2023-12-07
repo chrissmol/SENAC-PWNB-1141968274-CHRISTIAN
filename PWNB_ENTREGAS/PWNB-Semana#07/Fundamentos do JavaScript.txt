@@ -1,0 +1,8 @@
+Noções básicas de JavaScript:  
+	JavaScript é uma linguagem de programação de alto nível amplamente utilizada no desenvolvimento web. Isso permite que você crie páginas dinâmicas, interativas e responsivas. Os fundamentos do JavaScript incluem a compreensão dos tipos de dados (por exemplo, números, strings, booleanos), operadores, estruturas de fluxo de controle  e funções.
+
+Variável:
+	Variáveis ​​são usadas para armazenar e manipular dados durante a programação. Em JavaScript, você pode declarar variáveis ​​usando as palavras-chave var, let ou const. Variáveis ​​​​podem armazenar diferentes tipos de dados, como números, strings, objetos, arrays, etc. Compreender como declarar, definir valores e usar variáveis ​​é essencial para a programação  JavaScript.
+
+Tratamento da condição:  
+	O processamento condicional em JavaScript envolve o uso de estruturas de fluxo de controle  como if, else if e else. Essa estrutura permite que o código tome decisões com base em determinadas condições. Uma condição pode ser uma expressão lógica avaliada como verdadeira ou falsa, e o fluxo do programa é determinado pelo resultado dessa condição. Repita o ciclo.  Loops repetidos, como for e while, são usados ​​para executar um bloco de código várias vezes. É essencial para automatizar tarefas repetitivas. Os loops for são normalmente usados ​​quando o número exato de iterações é conhecido, enquanto os loops while são usados ​​quando a condição de iteração pode ser avaliada como verdadeira. Loops iterativos permitem otimizar seu código e tornar seus programas mais eficientes.
