@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Clientes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="incluirClientes">
+    <h2>Incluir Cliente</h2>
+    <form id="clienteForm">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" required>
+
+      <label for="cep">CEP:</label>
+      <input type="text" id="cep" pattern="\d{5}-\d{3}" required>
+
+      <button type="button" onclick="incluirCliente()">Incluir Cliente</button>
+      <button type="button" onclick="mostrarListaClientes()">Ver Lista de Clientes</button>
+    </form>
+  </div>
+
+  <div id="listarClientes" style="display: none;">
+    <h2>Lista de Clientes</h2>
+    <ul id="clientesList"></ul>
+    <button type="button" onclick="voltarParaIncluir()">Voltar para Incluir</button>
+  </div>
+
+  <script>
+    let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+
+    function incluirCliente() {
+      const nome = document.getElementById('nome').value;
+      const cep = document.getElementById('cep').value;
+      const endereco = buscarEnderecoNoBanco(cep);
+      const novoCliente = { nome, cep, endereco };
+      clientes.push(novoCliente);
+      localStorage.setItem('clientes', JSON.stringify(clientes));
+      document.getElementById('clienteForm').reset();
+    }
+
+    function mostrarListaClientes() {
+      const listaClientes = document.getElementById('clientesList');
+      listaClientes.innerHTML = '';
+
+      clientes.forEach((cliente, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${cliente.nome} - ${cliente.endereco} - ${cliente.cep}`;
+
+        const btnAlterar = document.createElement('button');
+        btnAlterar.textContent = 'Alterar';
+        btnAlterar.onclick = () => alterarCliente(index);
+
+        const btnExcluir = document.createElement('button');
+        btnExcluir.textContent = 'Excluir';
+        btnExcluir.onclick = () => excluirCliente(index);
+
+        li.appendChild(btnAlterar);
+        li.appendChild(btnExcluir);
+
+        listaClientes.appendChild(li);
+      });
+
+      document.getElementById('incluirClientes').style.display = 'none';
+      document.getElementById('listarClientes').style.display = 'block';
+    }
+
+    function voltarParaIncluir() {
+      document.getElementById('incluirClientes').style.display = 'block';
+      document.getElementById('listarClientes').style.display = 'none';
+    }
+
+    function alterarCliente(index) {
+      // Implemente a lógica de alteração conforme necessário
+    }
+
+    function excluirCliente(index) {
+      clientes.splice(index, 1);
+      localStorage.setItem('clientes', JSON.stringify(clientes));
+      mostrarListaClientes();
+    }
+
+    function buscarEnderecoNoBanco(cep) {
+      return `Endereço fictício para o CEP ${cep}`;
+    }
+  </script>
+</body>
+</html>
